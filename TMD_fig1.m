@@ -68,7 +68,7 @@ else
     [nnz,mmz]=size(z);
     if check_dim(CFname,n,m,nnz,mmz)==0,
      fprintf('hfile: %s\n ufile: %s\n grid: %s\n',hfile,ufile,Gname);
-     break;
+     return;
     end
     nnanz=find(z~=0);z(find(z==0))=NaN;
     icz1=ic1;
@@ -79,7 +79,7 @@ else
     [nnu,mmu]=size(u);
     if check_dim(CFname,n,m,nnu,mmu)==0,
      fprintf('hfile: %s\n ufile: %s\n grid: %s\n',hfile,ufile,Gname);
-     break;
+     return;
     end
     nnanuv=find(u~=0 & v~=0);
     u(find(u==0))=NaN+i*NaN;

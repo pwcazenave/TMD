@@ -33,13 +33,13 @@ dir_check=exist('DATA','dir');
 if(dir_check==0);
     disp('Subdirectory DATA not found. You must navigate to');
     disp('location of Model files from current directory.');
-    break
+    return
 else
     eval('cd DATA');
 end
 cfile=0;
 [cfile,pname]=uigetfile('Model*','Open MODEL files listed in ');
-if cfile==0,eval(['cd ' curdir]);break;end
+if cfile==0,eval(['cd ' curdir]);return;end
 CFname=[pname cfile];
 fid=fopen(CFname,'r');
 hfile=fgetl(fid);ufile=fgetl(fid);Gname=fgetl(fid);Fxy_ll=fgetl(fid);
@@ -69,7 +69,7 @@ if exist(Gname,'file')==0,
 end
 if k==1,
  fprintf('Check control file: %s\n',CFname);
- break
+ return
 end
 %
 km=0;
@@ -88,7 +88,8 @@ if km==1 & Fxy_ll==-1,
  fprintf('   lat,lon to x,y and back MUST be given in 4-th line of\n');
  fprintf('%s\n',CFname);
  fprintf('TMD exiting...\n');
- break;close all   
+ close all
+ return
 end
 if km==0, Fxy_ll='Fdum';end
 % define model name by comparing strings hfile and ufile
