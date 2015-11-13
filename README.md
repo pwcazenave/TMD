@@ -16,12 +16,20 @@ Two things to note:
 The Models
 ----------
 
-[Global 1/4o x 1/4o Inverse Model (TPXO7.2, from OSU)](ftp://ftp.oce.orst.edu/dist/tides/Global/tpxo.tar.Z)
-[Global 1/4o x 1/4o Inverse Load Tide Model (TPXO7.2_load, from OSU)](http://www.esr.org/~padman/tpxo7.2_load/)
-[AOTIM-5 Arctic Ocean 5 km Inverse Model](http://polaris.esr.org/polar_tide_models/Model_AOTIM5.html)
-[AODTM-5 Arctic Ocean 5 km Forward Model](http://polaris.esr.org/polar_tide_models/Model_AODTM5.html)
-[CATS2008 Circum-Antarctic Inverse Model](http://www.esr.org/polar_tide_models/Model_CATS2008a.html)
-[Antarctic Peninsula High-Res 1/30o x 1/60o (~2 km) Forward Model](http://polaris.esr.org/polar_tide_models/Model_AntPen0401.html)
-[Ross Sea 1/8o x 1/24o Forward Model](http://polaris.esr.org/polar_tide_models/Model_RossPrior.html)
-[Ross Sea Height-Based 1/4o x 1/12o Inverse Model](http://polaris.esr.org/polar_tide_models/Model_RossInv2002.html)
-[Ross Sea Velocity-Based 1/8o x 1/24o Inverse Model (RossTIM)](http://polaris.esr.org/polar_tide_models/Model_RossTIM.html)
+* [Global 1/4o x 1/4o Inverse Model (TPXO7.2, from OSU)](ftp://ftp.oce.orst.edu/dist/tides/Global/tpxo.tar.Z)
+
+* [Global 1/4o x 1/4o Inverse Load Tide Model (TPXO7.2_load, from OSU)](http://www.esr.org/~padman/tpxo7.2_load/)
+
+* [AOTIM-5 Arctic Ocean 5 km Inverse Model](http://polaris.esr.org/polar_tide_models/Model_AOTIM5.html)
+
+* [AODTM-5 Arctic Ocean 5 km Forward Model](http://polaris.esr.org/polar_tide_models/Model_AODTM5.html)
+
+* [CATS2008 Circum-Antarctic Inverse Model](http://www.esr.org/polar_tide_models/Model_CATS2008a.html)
+
+* [Antarctic Peninsula High-Res 1/30o x 1/60o (~2 km) Forward Model](http://polaris.esr.org/polar_tide_models/Model_AntPen0401.html)
+
+* [Ross Sea 1/8o x 1/24o Forward Model](http://polaris.esr.org/polar_tide_models/Model_RossPrior.html)
+
+* [Ross Sea Height-Based 1/4o x 1/12o Inverse Model](http://polaris.esr.org/polar_tide_models/Model_RossInv2002.html)
+
+* [Ross Sea Velocity-Based 1/8o x 1/24o Inverse Model (RossTIM)](http://polaris.esr.org/polar_tide_models/Model_RossTIM.html)
