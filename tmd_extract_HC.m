@@ -37,7 +37,9 @@
 % TMD release 2.02: 21 July 2010
 function [amp,Gph,D,conList]=tmd_extract_HC(Model,lat,lon,type,Cid);
 amp=[];Gph=[];D=[];conList=[];
-w=what('TMD');funcdir=[w.path '/FUNCTIONS'];
+w=which('TMD');
+[wpath, ~, ~] = fileparts(w);
+funcdir = fullfile(wpath, 'FUNCTIONS');
 path(path,funcdir);
 if type=='z',k=1;else k=2;end
 [ModName,GridName,Fxy_ll]=rdModFile(Model,k);

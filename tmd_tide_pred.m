@@ -52,7 +52,9 @@
 %
 function [TS,conList]=tmd_tide_pred(Model,SDtime,lat,lon,ptype,Cid);
 TS=[];conList=[];
-w=what('TMD');funcdir=[w.path '/FUNCTIONS'];
+w=which('TMD');
+[wpath, ~, ~] = fileparts(w);
+funcdir = fullfile(wpath, 'FUNCTIONS');
 path(path,funcdir);
 if ptype=='z',k=1;else k=2;end
 [ModName,GridName,Fxy_ll]=rdModFile(Model,k);
