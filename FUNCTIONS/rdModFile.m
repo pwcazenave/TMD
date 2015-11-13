@@ -17,31 +17,40 @@
 % Fxy_ll - function to convert lat,lon to x,y
 %          (only for models on cartesian grid (in km));
 %          If model is on lat/lon grid Fxy_ll=[];
-
-function [ModName,GridName,Fxy_ll]=rdModFile(Model,k);
-i1=findstr(Model,'/');
-pname=[];
-if isempty(i1)==0,pname=Model(1:i1(end));end
-fid=fopen(Model,'r');
-ModName=[];GridName=[];Fxy_ll=[];
-if fid<1,fprintf('File %s does not exist\n',Model);return;end
-hfile=fgetl(fid);
-ufile=fgetl(fid);
-gfile=fgetl(fid);
-i1=findstr(hfile,'/');if isempty(i1)>0,i1=findstr(hfile,'\');end
-i2=findstr(ufile,'/');if isempty(i2)>0,i2=findstr(ufile,'\');end
-i3=findstr(gfile,'/');if isempty(i3)>0,i3=findstr(gfile,'\');end
-if isempty(i3)==0,GridName=gfile;else GridName=[pname gfile];end
-if k==1 & isempty(i1)==0,pname=[];end
-if k==2 & isempty(i2)==0,pname=[];end
-if k==1,ModName=[pname hfile];else ModName=[pname ufile];end
-Fxy_ll=fgetl(fid);
-if Fxy_ll==-1,Fxy_ll=[];end
-fclose(fid);
-% check if the file exist
-fid=fopen(ModName,'r');
-if fid<1,fprintf('File does not exist: %s\n',ModName);
-         ModName=[];GridName=[];return;end
 %
-return
+% 2015-11-13 Pierre Cazenave (Plymouth Marine Laboratory)
+%   Simplified to use MATLAB native function instead of string splitting.
+%
+function [ModName, GridName, Fxy_ll] = rdModFile(Model, k)
 
+[prefix, ~, ~] = fileparts(Model);
+
+fid = fopen(Model, 'r');
+assert(fid > 0, 'Error opening model file %s')
+hfile = fgetl(fid);
+ufile = fgetl(fid);
+gfile = fgetl(fid);
+
+GridName = getfullpath(fullfile(prefix, '..', gfile));
+% Assume transport but overwrite if k == 1.
+ModName = getfullpath(fullfile(prefix, '..', ufile));
+if k == 1
+    ModName = getfullpath(fullfile(prefix, '..', hfile));
+end
+
+Fxy_ll = fgetl(fid);
+if Fxy_ll == -1
+    Fxy_ll = [];
+end
+fclose(fid);
+
+% check if the file exists
+fid = fopen(ModName, 'r');
+assert(fid >= 1, 'File %s does not exist', Model)
+fclose(fid);
+
+function canonicalpath = getfullpath(relativepath)
+% Take a given relative path and get the canonical path.
+%
+jFile = java.io.File(relativepath);
+canonicalpath = char(jFile.getCanonicalPath);
