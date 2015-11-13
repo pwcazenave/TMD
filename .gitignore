@@ -4,5 +4,6 @@
 *.mat
 *.nc
 
-# Ignore the DATA directory.
+# Ignore the DATA and OUT directories.
 DATA/
+OUT/
