@@ -109,7 +109,7 @@ if nargin>4, if isempty(Cid)==0;cind=Cid;end;end
 fprintf('\n');
 for ic0=1:length(cind),
  ic=cind(ic0); 
- fprintf('Interpolating constituent %s...',conList(ic,:));
+ fprintf('Interpolating constituent %s... ',conList(ic,:));
  if type=='z',
   [z,th_lim,ph_lim]=h_in(ModName,ic);
   [nn,mm]=size(z);if check_dim(Model,n,m,nn,mm)==0,break;end
